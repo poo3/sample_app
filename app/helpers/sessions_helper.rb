@@ -30,8 +30,6 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  
-
   #永続的セッションを破棄する
   def forget(user)
     user.forget
