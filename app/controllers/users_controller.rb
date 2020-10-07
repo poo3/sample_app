@@ -23,8 +23,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  private 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      #更新に成功した場合の処理
+    else
+      render 'edit'
+    end
+  end
 
+  private 
+    #ストロングパラメータ、マスアサインメントの脆弱性対策
+    #そもそも、マスアサインメントとは、DBの更新処理で複数からむ同時に指定することである。
     def user_params
       params.require(:user).permit(:name,:email,:password,:password_confirmation)
     end
