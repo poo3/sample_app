@@ -40,7 +40,9 @@ class UsersEditTest < ActionDispatch::IntegrationTest
 
   test "sucessful edit with friendly fowarding" do
     get edit_user_path(@user)
+    assert_equal session[:fowarding_url],edit_user_url(@user)
     log_in_as(@user)
+    assert_equal session[:fowarding_url],nil
     assert_redirected_to edit_user_url(@user)
     name = 'Foo Bar'
     email = "foo@bar.com"
@@ -53,6 +55,5 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name,@user.name
     assert_equal email,@user.email
-    assert_equal session[:fowarding_url],nil
   end
 end
