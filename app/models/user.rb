@@ -47,7 +47,7 @@ class User < ApplicationRecord
   end
 
   #有効化メールを送信する
-  def sene_activation_email
+  def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
 
