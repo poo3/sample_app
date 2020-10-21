@@ -21,12 +21,20 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', -1 do
       delete user_path(@non_admin)
     end
+
   end
 
   test "index as non_admin" do
     log_in_as(@non_admin)
     get users_path
     assert_select "a",count: 0,text: 'delete'
+  end
+
+  test "not loading not activated user" do
+    log_in_as(@admin)
+    get users_path
+    users = assigns(:users)
+    assert_not users.find_by(activated: false)
   end
   
 end
