@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
   get 'sessions/new'
   get '/signup',to: 'users#new'
   root 'static_pages#home'
