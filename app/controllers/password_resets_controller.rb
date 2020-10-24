@@ -28,6 +28,7 @@ class PasswordResetsController < ApplicationController
       @user.errors.add(:password, :blank)
       render 'edit'
     elsif @user.update(user_params) #パスワードが正しければ更新する
+      @user.update_attribute(:reset_digest,nil)
       log_in @user
       flash[:success] = "Password has benn reset"
       redirect_to @user
