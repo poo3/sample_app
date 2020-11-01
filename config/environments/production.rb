@@ -3,7 +3,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://sheltered-scrubland-31749.herokuapp.com'
+  host = 'https://sample-app-poo3.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
@@ -50,6 +50,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
+    # アップロードされたファイルをAWSに保存する
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
