@@ -10,6 +10,10 @@ gem 'will_paginate', '3.1.8'
 gem 'bootstrap-will_paginate','1.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.3'
+gem 'aws-sdk-s3', '1.46.0',require: false
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
+gem 'active_storage_validations','0.8.2'
 # Use Puma as the app server
 gem 'puma', '4.3.4'
 # Use SCSS for stylesheets
