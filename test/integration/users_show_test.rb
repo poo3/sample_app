@@ -5,6 +5,8 @@ class UsersShowTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   def setup
+    @not_logged_in_user = users(:archer)
+    @logged_in_user = users(:michael)
     @not_activated_user = users(:michael)
     @not_activated_user.update_attribute(:activated,false)
     @not_activated_user.reload
@@ -15,4 +17,5 @@ class UsersShowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'static_pages/home'
   end
+
 end
